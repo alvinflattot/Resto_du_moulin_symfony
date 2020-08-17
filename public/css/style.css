@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'scandal';
+    src: url("../fonts/PF_Scandal_Pro_Bold.ttf") ;
+}
+
+@font-face {
+    font-family: 'raleway';
+    src: url("../fonts/Raleway-Bold.ttf") ;
+    font-weight: 700 ;
+}
+
+@font-face {
+    font-family: 'raleway';
+    src: url("../fonts/Raleway-Regular.ttf") ;
+    font-weight: 400 ;
+}
+
+@font-face {
+    font-family: 'josefin';
+    src: url("../fonts/JosefinSans-Light.ttf") ;
+    font-weight: 300 ;
+}
+
+.raleway-regular{
+    font-family: 'raleway';
+    font-weight: 700;
+    color: #4b4741;
+}
+
+.josefin-light{
+    font-family: 'josefin';
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+/*Navbar*/
+
+.red-line{
+    border-bottom: 4px solid #e20816;
+}
+.site-brand{
+    font-family: 'scandal';
+    font-size: 1.5rem;
+    
+}
+
+#phone-number{
+    color: #e20816;
+}
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/*Entête*/
+.head-title{
+    background-image: url('../images/salle_home.jpg');
+    background-size: cover;
+}
+
+.head-title>.head-title-overlay>h1{
+    padding: 70px 0;
+    margin-top: 10px;
+    color: white;
+    font-size: 3rem;
+    font-family: 'scandal';
+    background-image: url('../images/Restaurant_du_Moulin_logo_red.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.head-title-overlay{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.btn-menu{
+    color:white;
+    background-color: #e20816;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border: #e20816;
+}
+
+.btn-menu:hover{
+    color:#e20816;
+    background-color: white;
+}
+
+/*Présentation du restaurant*/
+
+.separateur{
+    max-width:300px ;
+    margin: auto;
+}
+
+/*map*/
+.map-section{
+    background-image: url('../images/buffet.jpg');
+    background-repeat: no-repeat;
+    background-position: center  ;
+    background-size: cover;
+    background-color: red;
+}
+
+.map-title-overlay{
+     background-color: rgba(0,0,0,0.5);
+}
+
+.map-section h3{
+    color:white;
+    font-size: 1.2em;
+}
+.map-div{
+    height: 200px;
+}
+
+/*Barre de décoration*/
+.deco-bar{
+    height: 230px;
+}
+.deco{
+    background-size: cover;
+    background-position: center;
+}
+
+.deco1{
+    background-image: url('../images/plat1.jpg');
+}
+.deco2{
+    background-image: url('../images/plat2.jpg');
+}
+.deco3{
+    background-image: url('../images/plat3.jpg');
+}
+.deco4{
+    background-image: url('../images/plat4.jpg');
+}
+
+/*Infos légales*/
+.infos>p{
+    font-family: 'josefin';
+    font-weight: 300;
+    margin-bottom: 0px;
+}
+
+.infos>h3{
+    font-family: 'raleway';
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.separateur-infos{
+    width: 120px;
+}
+
+/*Fleche pour remonter la page*/
+.arrow-up{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 3.5em;
+    background-color: rgb(68, 67, 67);
+}
+
+.arrow-up>a{
+    color: white ;
+}
+
+.arrow-up:hover{
+    background-color: black;
+}
+
+/*contact*/
+.btn-red{
+    background-color:#aa3938 ;
+    border: #aa3938;
+}
+
+.btn-red:hover{
+    background-color:#8a2f2d ;
+}
+
+/* page des menus */
+.cards-nav>ul>li{
+    background-color: #aa3938 !important ;
+    color:white;
+    
+}
+
+.cards-nav>ul>li:hover{
+    background-color:#8a2f2d !important;
+    cursor: pointer;
+}
+
+.card-view{
+    border: solid 2px #aa3938 !important;
+    
+}
+
+.card-view>h2{
+    
+}
+
+/*Pied de page*/
+.main-footer{
+    background-color: #aa3938;
+    color: white;
+}
+
+.main-footer a{
+    color: white;
+}
+
+.fa-facebook{
+    font-size: 3rem !important;
+}
+
+.fa-facebook:hover{
+    color: #4267B2 !important;
+}
+
+.separateur-footer{
+    width: 140px;
+}
+
