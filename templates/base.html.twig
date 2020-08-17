@@ -26,8 +26,8 @@
             <header class="row">
 
                 {# Navbar principale #}
-                <nav class="navbar navbar-expand-lg navbar-light  col-lg-10 offset-lg-1">
-                    <a class="navbar-brand site-brand" href="#">
+                <nav  id="main-menu" class="navbar navbar-expand-lg navbar-light  col-lg-10 offset-lg-1">
+                    <a class="navbar-brand site-brand" href="{{ path('home') }}">
                         <img src="{{ asset('images/logo_restaurant_moulin.png')}}" width="80" height="80" alt="logo du site">
                         <span class="d-lg-none d-inline-block">Restaurant du Moulin</span>
                     </a>
@@ -38,29 +38,31 @@
                     <div class="collapse navbar-collapse ml-lg-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ path('home') }}">Accueil<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Menu
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Carte des entrées</a>
+                            <a class="dropdown-item" href="{{ path('card') }}"><b>Notre carte</b></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="card.php">Carte des entrées</a>
                             <a class="dropdown-item" href="#">Carte des plats</a>
                             <a class="dropdown-item" href="#">Carte des desserts</a>
                         </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Horaires</a>
+                            <a class="nav-link" href="#timetable">Horaires</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Groupe</a>
+                            <a class="nav-link" href="{{path('home')}}#group">Groupe</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Infos légales</a>
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" href="{{ path('infos_legales') }}">Infos légales</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="tel:0385571885" id="phone-number"> <i class="fas fa-phone-alt"></i>  0385571885</a>
@@ -68,6 +70,15 @@
                     </ul>
                     </div>
                 </nav>
+
+                <div class="red-line col-12"></div> {#séparateur ligne rouge déco#}
+
+                {# flèche pour remonter la page #}
+                <div class="arrow-up  rounded-circle d-flex justify-content-center align-items-center">
+                    <a href="#main-menu">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
 
             </header>
 

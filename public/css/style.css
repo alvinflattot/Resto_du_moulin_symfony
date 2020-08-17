@@ -202,12 +202,11 @@
 
 .card-view{
     border: solid 2px #aa3938 !important;
+    min-height: 400px;
     
 }
 
-.card-view>h2{
-    
-}
+
 
 /*Pied de page*/
 .main-footer{
