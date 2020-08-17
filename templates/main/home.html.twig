@@ -4,6 +4,11 @@
 
 {% block body %}
 
+{# Affichage des messages flashs de type "success" si il y en a #}
+{% include 'partials/flashes/success.html.twig' %}
+{# Affichage des messages flashs de type "error" si il y en a #}
+{% include 'partials/flashes/error.html.twig' %}
+
 {#Entête#}
 <section class="row head-title">
     <div class="col-12 text-center head-title-overlay py-4">

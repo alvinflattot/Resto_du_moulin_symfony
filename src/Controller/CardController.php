@@ -16,7 +16,7 @@ class CardController extends AbstractController
     {
 
         
-        return $this->render('main/card.html.twig', [
+        return $this->render('card/card.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }
