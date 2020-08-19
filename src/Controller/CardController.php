@@ -15,6 +15,7 @@ class CardController extends AbstractController
     public function card()
     {
 
+        $pageRepository = $this->getDoctrine()->getRepository(Page::class);
         
         return $this->render('card/card.html.twig', [
             'controller_name' => 'MainController',
