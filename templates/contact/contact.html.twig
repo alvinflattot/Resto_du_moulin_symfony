@@ -9,54 +9,72 @@
 {# Affichage des messages flashs de type "error" si il y en a #}
 {% include 'partials/flashes/error.html.twig' %}
 
+{# Entête #}
+<section class="row head-title">
+    <div class="col-12  text-center head-title-overlay py-4">
+        <h1>Contact</h1>
+    </div>
+</section>
+
 
 <div class="row">
     
-    <div class="col-12 col-md-6 offset-md-3 py-5">
-        
-        <h1>Nous contacter</h1>
+    <h1 class="col-12 text-center">Nous contacter</h1>
 
         {# Ouverture du formulaire #}
-        {{ form_start(contactForm) }}
-        
+        {{ form_start(contactForm, {attr: {class: 'row'}}) }}
+            
             {# Affichage des erreurs générales du formulaire #}
             {{ form_errors(contactForm) }}
-        
-            {# Champ prénom #}
-            {{ form_row(contactForm.firstname) }}
-        
-            {# Champ nom #}
-            {{ form_row(contactForm.lastname) }}
-        
-            {# Champ adresse #}
-            {{ form_row(contactForm.adress) }}
-        
-            {# Champ code postal #}
-            {{ form_row(contactForm.zipcode) }}
-        
-            {# Champ ville #}
-            {{ form_row(contactForm.city) }}
-        
-            {# Champ téléphone #}
-            {{ form_row(contactForm.phone) }}
-        
-            {# Champ email #}
-            {{ form_row(contactForm.email) }}
-        
-            {# Champ message #}
-            {{ form_row(contactForm.message) }}
-        
-            {# Bouton de validation #}
-            {{ form_row(contactForm.send) }}
-        
+
+            <div class="offset-3 col-3">
+                {# Champ prénom #}
+                {{ form_row(contactForm.firstname) }}
+            </div>
+
+            <div class="col-3">
+                {# Champ nom #}
+                {{ form_row(contactForm.lastname) }}
+            </div>
+
+            <div class="offset-3 col-6">
+                {# Champ adresse #}
+                {{ form_row(contactForm.adress) }}
+            </div>
+
+            <div class="offset-3 col-2">
+                {# Champ code postal #}
+                {{ form_row(contactForm.zipcode) }}
+            </div>
+
+            <div class="col-4">
+                {# Champ ville #}
+                {{ form_row(contactForm.city) }}
+            </div>
+
+            <div class="offset-3 col-2">
+                {# Champ téléphone #}
+                {{ form_row(contactForm.phone) }}
+            </div>
+            
+            <div class="col-4">
+                {# Champ email #}
+                {{ form_row(contactForm.email) }}
+            </div>
+
+            <div class="offset-3 col-6">
+                {# Champ message #}
+                {{ form_row(contactForm.message, {attr: {rows: '12'}}) }}
+            </div>
+
+            <div class="col-4 offset-4 contact-btn-div">
+                {# Bouton de validation #}
+                {{ form_row(contactForm.send) }}
+            </div>
+
         {# Fermeture du formulaire #}
         {{ form_end(contactForm) }}
-        
-        
-        {{ form(contactForm) }}
-
-    </div>
-    
+            
 </div>
 
 

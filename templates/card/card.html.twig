@@ -1,46 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Infos légales{% endblock %}
+{% block title %}Notre carte{% endblock %}
 
 {% block body %}
 
-    <!-- Entête -->
+    {# Entête #}
     <section class="row head-title">
         <div class="col-12  text-center head-title-overlay py-4">
             <h1>Menu</h1>
         </div>
     </section>
 
-    <!-- Section menu  -->
+    {# Section menu #}
     <section class="row  py-4 py-md-5 text-center  ">
 
         <div  class="col-12">
         
-            <!-- barre de navigation de la carte du restaurant -->
+            {# barre de navigation de la carte du restaurant #}
             <nav class="row cards-nav mb-4  ">
 
                 
-                <ul class="d-flex justify-content-center list-group col-10 offset-1  list-group-horizontal-md p-0">
-                    <li class="mb-2  list-group-item" id="menu-du-jour" data-type="menu-du-jour">Menu du jour</li>
-                    <li class="mb-2  list-group-item" id="entree" data-type="entree">Entrées</li>
-                    <li class="mb-2  list-group-item" id="plat" data-type="plat">Plats</li>
-                    <li class="mb-2  list-group-item" id="dessert" data-type="dessert">Desserts</li>
-                    <li class="mb-2  list-group-item" id="petit-chef" data-type="petit-chef"> Petit chef</li>
-                    <li class="mb-2  list-group-item" id="emporter" data-type="emporter">À emporter</li>
+                <ul class="d-flex justify-content-center list-group col-10 offset-1 list-group-horizontal-md p-0">
+                    <li class="mb-2 list-group-item" id="menu-du-jour" data-type="menu-du-jour">
+                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}">Menu du jour</a>
+                    </li>
+                    <li class="mb-2 list-group-item" id="entree" data-type="entree">
+                        <a href="{{ path('card_type',{type: 'entree'}) }}">Entrées</a>
+                    </li>
+                    <li class="mb-2 list-group-item" id="plat" data-type="plat">
+                        <a href="{{ path('card_type',{type: 'plat'}) }}">Plats</a>
+                    </li>
+                    <li class="mb-2 list-group-item" id="dessert" data-type="dessert">
+                        <a href="{{ path('card_type',{type: 'dessert'}) }}">Desserts</a>
+                    </li>
+                    <li class="mb-2 list-group-item" id="petit-chef" data-type="petit-chef">
+                        <a href="{{ path('card_type',{type: 'petit-chef'}) }}"> Petit chef</a>
+                    </li>
+                    <li class="mb-2 list-group-item" id="emporter" data-type="emporter">
+                        <a href="{{ path('card_type',{type: 'emporter'}) }}">À emporter</a>
+                    </li>
                 </ul>
-
 
             </nav>
 
-            <!-- affichage de la carte  -->
+            {# affichage de la carte  #}
             <div class="row ">
 
-                <div class="col-10 offset-1 col-md-8 offset-md-2 border  rounded card-view  py-3">
+                <div class="col-10 offset-1 col-md-8 offset-md-2 border  rounded card-view  py-3 ">
                     
-                    
+                    {% if page is defined %}
 
-                    
+                        <h2 class="raleway-regular">{{page.title}}</h2>
+                        <p class="josefin-light">{{page.content}}</p>
 
+                    {% else %}
+                        <p>Bon appetit !</p>
+                    {% endif %}
+                    
                 </div>
             
             </div>
@@ -48,7 +64,7 @@
         </div>
                 
     </section>
-    <button id="test">test</button>
 
+    <button id="test">test</button>
 
 {% endblock %}

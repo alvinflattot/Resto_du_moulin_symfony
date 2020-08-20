@@ -55,6 +55,7 @@
 .head-title{
     background-image: url('../images/salle_home.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 .head-title>.head-title-overlay>h1{
@@ -179,25 +180,29 @@
 }
 
 /*contact*/
-.btn-red{
+.contact-btn-div button{
     background-color:#aa3938 ;
     border: #aa3938;
+    color: white;
 }
 
-.btn-red:hover{
+.contact-btn-div button:hover{
     background-color:#8a2f2d ;
 }
 
 /* page des menus */
 .cards-nav>ul>li{
     background-color: #aa3938 !important ;
-    color:white;
-    
 }
 
 .cards-nav>ul>li:hover{
     background-color:#8a2f2d !important;
     cursor: pointer;
+}
+
+.cards-nav>ul>li>a{
+    color:white;
+    text-decoration: none;
 }
 
 .card-view{

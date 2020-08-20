@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Article;
+use App\Entity\Page;
 use Symfony\Component\HttpFoundation\Request;
 
 class CardController extends AbstractController
@@ -15,11 +15,27 @@ class CardController extends AbstractController
     public function card()
     {
 
-        $pageRepository = $this->getDoctrine()->getRepository(Page::class);
+        
         
         return $this->render('card/card.html.twig', [
-            'controller_name' => 'MainController',
+            'controller_name' => 'MainController',   
         ]);
     }
+
+    /**
+     * @Route("/notre-carte/{type}/", name="card_type", requirements={"id"="\d+"})
+     */
+    public function entree(Page $page)
+    {
+
+        dump($page);
+        
+        
+        return $this->render('card/card.html.twig', [
+            // 'controller_name' => 'MainController',
+            'page' => $page
+        ]);
+    }
+
 
 }
