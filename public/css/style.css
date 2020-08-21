@@ -33,6 +33,16 @@
     font-size: 1.2em;
 }
 
+.btn-red{
+    background-color:#aa3938 !important;
+    border: #aa3938 !important;
+    color: white !important;
+}
+
+.btn-red:hover{
+    background-color:#8a2f2d ;
+}
+
 /*Navbar*/
 
 .red-line{

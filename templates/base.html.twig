@@ -101,6 +101,18 @@
                     </p>
                     
                     <a id="facebook-link" class="mt-4 mb-0" href="https://www.facebook.com/www.restaurantdumoulin.fr?hc_location=timeline"><i class="fab fa-facebook text-white"></i></a> <br>
+
+                    {# Boutons si l'utilisateur est connecté #}
+                    {% if app.user %}
+                        <a  class="pt-4 d-block"href="{{ path('app_logout') }}">
+                            <small > <i class="fas fa-wrench"></i> Déconnexion </small>
+                        </a>
+                    {% else %} {# Boutons si l'utilisateur n'est pas connecté #}
+                        <a  class="pt-4 d-block"href="{{ path('app_login') }}">
+                            <small > <i class="fas fa-wrench"></i> Administration </small>
+                        </a>
+                    {% endif %}
+
                     
                 </div>
 

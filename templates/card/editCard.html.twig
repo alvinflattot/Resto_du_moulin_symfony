@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Notre carte{% endblock %}
+{% block title %}Modification de menu{% endblock %}
 
 {% block body %}
 
     {# Entête #}
     <section class="row head-title">
         <div class="col-12  text-center head-title-overlay py-4">
-            <h1>Menu</h1>
+            <h1>Modification du menu</h1>
         </div>
     </section>
 
@@ -42,40 +42,32 @@
 
             </nav>
 
-            {# Affichage des messages flashs de type "success" si il y en a #}
-            {% include 'partials/flashes/success.html.twig' %}
-            {# Affichage des messages flashs de type "error" si il y en a #}
-            {% include 'partials/flashes/error.html.twig' %}
-
             {# affichage de la carte  #}
             <div class="row ">
 
                 <div class="col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
-
                     
-                    
-                    {% if page is defined %}
+                    {# L'attribut action du formulaire doit être généré car ce dernier contient l'id de la page à modifier #}
+                    {{ form_start(form, {attr: {class: 'row'}}, {attr: {'action' : path('card_edit', { id: form.vars.value.id })}}) }}
 
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a  href="{{ path('card_edit', {id: page.id}) }}">
-                                <i class="fas fa-edit mb-3">Editer le menu</i>
-                            </a>
-                            {# {{ path('card_edit', {id: page.id}) }} #}
-                        {% endif %}
-                        
-                        <h2 class="d-block raleway-regular ">{{page.title}}</h2>
-                        <p class="d-block josefin-light ">{{page.content}}</p>
-
-                        
-                        
-
-                    {% else %}
-                        <div class="d-flex align-items-center justify-content-center h-100">
-
-                            <p class="raleway-regular">Bon appetit !</p>
-
+                        <div class="offset-2 col-8">
+                            {# Champ titre #}
+                            {{ form_row(form.title) }}
                         </div>
-                    {% endif %}
+
+                        <div class="offset-2 col-8">
+                            {# Champ contenu #}
+                            {{ form_row(form.content, {attr: {rows: '12'}}) }}
+                        </div>
+
+                        <div class="offset-2 col-3 contact-btn-div">
+                            {# Champ titre #}
+                            {{ form_row(form.send) }}
+                        </div>
+
+                    {# Fermeture du formulaire #}
+                    {{ form_end(form) }}
+            
                     
                 </div>
             

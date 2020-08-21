@@ -131,7 +131,7 @@ class ContactType extends AbstractType
                 'label' => 'Message*',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Merci de renseigner un contenu'
+                        'message' => 'Merci de renseigner un message'
                     ]),
                     new Length([
                         'min' => 1,
