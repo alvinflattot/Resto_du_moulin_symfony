@@ -1,3 +1,6 @@
+{# Variable Twig contenant le nom de la route actuelle (pour faire fonctionner correctement le menu) #}
+{% set currentRoute = app.request.attributes.get('_route') %}
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -6,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         {# TODO: Le titre sera composé du titre de la page, suivi d'un tiret, suivi du nom du site déclaré dans le fichier config/packages/twig.yaml #}
-        <title>{% block title %}Restaurant du moulin{% endblock %}</title>
+        <title>{% block title %}{% endblock %} - {{ site_name }} </title>
 
         {# Inclusions des fichiers CSS généraux du site #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -37,11 +40,12 @@
                 
                     <div class="collapse navbar-collapse ml-lg-5" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('home') }}">Accueil<span class="sr-only">(current)</span></a>
+                        <li class="nav-item {{ currentRoute == 'home' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ currentRoute == 'card' or currentRoute == 'card_type' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ path('card') }}">Menu</a>
+                            
                         </li>
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
@@ -59,10 +63,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{path('home')}}#group">Groupe</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item{{ currentRoute == 'contact' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                         </li>
-                        <li class="nav-item mr-3">
+                        <li class="nav-item mr-3 {{ currentRoute == 'infos_legales' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ path('infos_legales') }}">Infos légales</a>
                         </li>
                         <li class="nav-item">
@@ -82,8 +86,6 @@
                 </div>
 
             </header>
-
-            
 
              {# Affichage du contenu principal des pages #}
             {% block body %}{% endblock %}
@@ -113,7 +115,6 @@
                         </a>
                     {% endif %}
 
-                    
                 </div>
 
                 {# séparateur #}
@@ -124,7 +125,7 @@
                 {# horaires du restaurant #}
                 <div  id="timetable" class="col-12 col-md-5">
 
-                    <h3 class="col-12  text-center">Horaires</h3>
+                    <h3 class="col-12  text-center">Horaires <i class="far fa-calendar-alt"></i></h3>
                     <table class="table table-borderless table-sm text-white d-flex justify-content-center">
 
                         <tbody>
@@ -196,5 +197,6 @@
 
         {# Inclusion des fichiers JS individuels des pages #}
         {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

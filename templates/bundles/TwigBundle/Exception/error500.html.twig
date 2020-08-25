@@ -1,0 +1,24 @@
+{# Utilisation du squelette de page base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}Erreur 500 : Problème interne au serveur{% endblock %}
+
+{# Contenu de la page #}
+{% block body %}
+
+<section class="row head-title head-menu">
+    <div class="col-12  text-center head-title-overlay ">
+        <h1>Erreur</h1>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1 class="my-5">Erreur 500: Problème interne au serveur</h1>
+    </div>
+</div>
+
+    
+
+{% endblock %}

@@ -28,7 +28,7 @@ class Page
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=2000)
+     * @ORM\Column(type="string", length=10000)
      */
     private $content;
 

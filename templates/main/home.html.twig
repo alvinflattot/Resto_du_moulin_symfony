@@ -10,10 +10,10 @@
 {% include 'partials/flashes/error.html.twig' %}
 
 {#Entête#}
-<section class="row head-title">
+<section class="row head-title head-home">
     <div class="col-12 text-center head-title-overlay py-4">
         <h1 >Restaurant du Moulin</h1>
-        <a class="btn  btn-menu" href="card.php" role="button">Notre menu</a>
+        <a class="btn  btn-menu" href="{{path('card')}}" role="button">Notre menu</a>
     </div>
 </section>
 
@@ -39,7 +39,7 @@
 
             <div class="offset-1 col-10 offset-md-0 col-md-4 pt-md-4">
                 <div class="row">
-                    <img class="col-12 mb-3" src="{{asset('images/plat.jpg')}}" alt="">
+                    <img class="col-12 mb-3" src="{{asset('images/plat7.jpg')}}" alt="">
                     <img class="col-6" src="{{asset('images/goujonnettes.jpg')}}" alt="">
                     <img class="col-6" src="{{asset('images/dessert.jpg')}}" alt="">
                 </div>
@@ -58,7 +58,7 @@
             <img src="{{asset('images/cuillieres.png')}}" alt="séparateur en forme de cuillière">
         </div>
 
-        <h3 class=" raleway-regular">Groupe</h3>
+        <h3 class=" raleway-regular">Groupe <i class="fas fa-users"></i></h3>
         <p class="josefin-light py-3">Pour vos repas en groupe, 2 salles sont à votre disposition : <br>
             - le petit salon (18 personnes maximum) <br>
             
@@ -66,7 +66,7 @@
         </p>
 
         <div class="row">
-            <img class="col-8 offset-2 col-md-4 offset-md-2 mb-3" src="{{asset('images/salon1.jpg')}}" alt="">
+            <img class="col-8 offset-2 col-md-4 offset-md-2 mb-3 mb-md-0" src="{{asset('images/salon1.jpg')}}" alt="">
             <img class="col-8 offset-2 col-md-4 offset-md-0" src="{{asset('images/salon2.jpg')}}" alt="">
         </div>
 

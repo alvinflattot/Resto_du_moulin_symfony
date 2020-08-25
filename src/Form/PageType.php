@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class PageType extends AbstractType
 {
@@ -32,8 +33,9 @@ class PageType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('content', TextareaType::class, [
+            ->add('content', CKEditorType::class, [
                 'label' => 'Contenu',
+                'purify_html' => true,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un contenu'
@@ -41,7 +43,7 @@ class PageType extends AbstractType
                     new Length([
                         'min' => 1,
                         'minMessage' => 'Le message doit contenir au moins 1 caractère',
-                        'max' => 2000,
+                        'max' => 10000,
                         'maxMessage' => 'Le message doit contenir au maximum {{ limit }} caractères'
                     ]),
                 ]

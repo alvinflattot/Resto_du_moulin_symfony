@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modification de menu{% endblock %}
+{% block title %}Notre carte{% endblock %}
 
 {% block body %}
 
     {# Entête #}
-    <section class="row head-title">
+    <section class="row head-title head-menu">
         <div class="col-12  text-center head-title-overlay py-4">
-            <h1>Modification du menu</h1>
+            <h1>Menu</h1>
         </div>
     </section>
 
@@ -17,30 +17,34 @@
         <div  class="col-12">
         
             {# barre de navigation de la carte du restaurant #}
-            <nav class="row cards-nav mb-4  ">
 
-                <ul class="d-flex justify-content-center list-group col-10 offset-1 list-group-horizontal-md p-0">
-                    <li class="mb-2 list-group-item" id="menu-du-jour" data-type="menu-du-jour">
-                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}">Menu du jour</a>
+            <nav class="cards-nav col-10 offset-1  ">
+                <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
+                    <li class="m-1 m-md-0 ">
+                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' ? ' card-btn-active' : '' }}" >Menu du jour</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="entree" data-type="entree">
-                        <a href="{{ path('card_type',{type: 'entree'}) }}">Entrées</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'entree'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'entree' ? ' card-btn-active' : '' }} ">Entrées</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="plat" data-type="plat">
-                        <a href="{{ path('card_type',{type: 'plat'}) }}">Plats</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'plat'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'plat' ? ' card-btn-active' : '' }} ">Plats</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="dessert" data-type="dessert">
-                        <a href="{{ path('card_type',{type: 'dessert'}) }}">Desserts</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'dessert'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'dessert' ? ' card-btn-active' : '' }} ">Desserts</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="petit-chef" data-type="petit-chef">
-                        <a href="{{ path('card_type',{type: 'petit-chef'}) }}"> Petit chef</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'petit-chef'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'petit-chef' ? ' card-btn-active' : '' }} ">Petit chef</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="emporter" data-type="emporter">
-                        <a href="{{ path('card_type',{type: 'emporter'}) }}">À emporter</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'emporter'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'emporter' ? ' card-btn-active' : '' }} ">À emporter</a>
                     </li>
                 </ul>
-
             </nav>
+
+            {# Affichage des messages flashs de type "success" si il y en a #}
+            {% include 'partials/flashes/success.html.twig' %}
+            {# Affichage des messages flashs de type "error" si il y en a #}
+            {% include 'partials/flashes/error.html.twig' %}
 
             {# affichage de la carte  #}
             <div class="row ">
@@ -55,7 +59,7 @@
                             {{ form_row(form.title) }}
                         </div>
 
-                        <div class="offset-2 col-8">
+                        <div class="offset-1 col-10">
                             {# Champ contenu #}
                             {{ form_row(form.content, {attr: {rows: '12'}}) }}
                         </div>
@@ -68,7 +72,6 @@
                     {# Fermeture du formulaire #}
                     {{ form_end(form) }}
             
-                    
                 </div>
             
             </div>

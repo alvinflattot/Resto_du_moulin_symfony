@@ -10,7 +10,7 @@
 {% include 'partials/flashes/error.html.twig' %}
 
 {# Entête #}
-<section class="row head-title">
+<section class="row head-title head-contact">
     <div class="col-12  text-center head-title-overlay py-4">
         <h1>Contact</h1>
     </div>
@@ -64,7 +64,7 @@
 
             <div class="offset-3 col-6">
                 {# Champ message #}
-                {{ form_row(contactForm.message, {attr: {rows: '12'}}) }}
+                {{ form_row(contactForm.message, {attr: {rows: '8'}}) }}
             </div>
 
             <div class="col-4 offset-4 contact-btn-div">

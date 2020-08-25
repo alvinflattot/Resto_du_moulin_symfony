@@ -58,18 +58,16 @@ class CardController extends AbstractController
             // Message flash de type "success"
             $this->addFlash('success', 'Menu modifié avec succès !');
 
-            // Redirection vers la page de l'article modifié
-            return $this->redirectToRoute('card');
+            // Redirection vers la page de la page modifié
+            return $this->redirectToRoute('card_type', [ 'type' => $page->getType() ]);
 
         }
 
         // Appel de la vue en lui envoyant le formulaire à afficher
         return $this->render('card/editCard.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'page' => $page
         ]);
     }
-
-
-
 
 }

@@ -5,7 +5,7 @@
 {% block body %}
 
     {# Entête #}
-    <section class="row head-title">
+    <section class="row head-title head-menu">
         <div class="col-12  text-center head-title-overlay py-4">
             <h1>Menu</h1>
         </div>
@@ -17,29 +17,28 @@
         <div  class="col-12">
         
             {# barre de navigation de la carte du restaurant #}
-            <nav class="row cards-nav mb-4  ">
 
-                <ul class="d-flex justify-content-center list-group col-10 offset-1 list-group-horizontal-md p-0">
-                    <li class="mb-2 list-group-item" id="menu-du-jour" data-type="menu-du-jour">
-                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}">Menu du jour</a>
+            <nav class="cards-nav col-10 offset-1  ">
+                <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
+                    <li class="m-1 m-md-0 ">
+                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' ? ' card-btn-active' : '' }}" >Menu du jour</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="entree" data-type="entree">
-                        <a href="{{ path('card_type',{type: 'entree'}) }}">Entrées</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'entree'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'entree' ? ' card-btn-active' : '' }} ">Entrées</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="plat" data-type="plat">
-                        <a href="{{ path('card_type',{type: 'plat'}) }}">Plats</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'plat'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'plat' ? ' card-btn-active' : '' }} ">Plats</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="dessert" data-type="dessert">
-                        <a href="{{ path('card_type',{type: 'dessert'}) }}">Desserts</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'dessert'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'dessert' ? ' card-btn-active' : '' }} ">Desserts</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="petit-chef" data-type="petit-chef">
-                        <a href="{{ path('card_type',{type: 'petit-chef'}) }}"> Petit chef</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'petit-chef'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'petit-chef' ? ' card-btn-active' : '' }} ">Petit chef</a>
                     </li>
-                    <li class="mb-2 list-group-item" id="emporter" data-type="emporter">
-                        <a href="{{ path('card_type',{type: 'emporter'}) }}">À emporter</a>
+                    <li class="m-1 m-md-0">
+                        <a href="{{ path('card_type',{type: 'emporter'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'emporter' ? ' card-btn-active' : '' }} ">À emporter</a>
                     </li>
                 </ul>
-
             </nav>
 
             {# Affichage des messages flashs de type "success" si il y en a #}
@@ -53,23 +52,20 @@
                 <div class="col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
 
                     
-                    
+                    {# si un bouton du menu est selectionné #}
                     {% if page is defined %}
 
-                        {% if is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
                             <a  href="{{ path('card_edit', {id: page.id}) }}">
                                 <i class="fas fa-edit mb-3">Editer le menu</i>
                             </a>
                             {# {{ path('card_edit', {id: page.id}) }} #}
                         {% endif %}
                         
-                        <h2 class="d-block raleway-regular ">{{page.title}}</h2>
-                        <p class="d-block josefin-light ">{{page.content}}</p>
+                        <h2 class="d-block raleway-regular mb-4"><i class="fas fa-utensils"></i>&nbsp;{{page.title}}&nbsp;<i class="fas fa-utensils"></i></h2>
+                        <p class="d-block josefin-light ">{{ page.content|purify }}</p>
 
-                        
-                        
-
-                    {% else %}
+                    {% else %} {# contenu par défault #}
                         <div class="d-flex align-items-center justify-content-center h-100">
 
                             <p class="raleway-regular">Bon appetit !</p>
