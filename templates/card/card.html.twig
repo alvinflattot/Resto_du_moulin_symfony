@@ -21,7 +21,7 @@
             <nav class="cards-nav col-10 offset-1  ">
                 <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
                     <li class="m-1 m-md-0 ">
-                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' ? ' card-btn-active' : '' }}" >Menu du jour</a>
+                        <a href="{{ path('card_type',{type: 'menu-du-jour'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' or currentRoute == 'card' ? ' card-btn-active' : '' }}" >Menu du jour</a>
                     </li>
                     <li class="m-1 m-md-0">
                         <a href="{{ path('card_type',{type: 'entree'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'entree' ? ' card-btn-active' : '' }} ">Entrées</a>
@@ -38,6 +38,7 @@
                     <li class="m-1 m-md-0">
                         <a href="{{ path('card_type',{type: 'emporter'}) }}" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'emporter' ? ' card-btn-active' : '' }} ">À emporter</a>
                     </li>
+                    
                 </ul>
             </nav>
 
@@ -66,11 +67,20 @@
                         <p class="d-block josefin-light ">{{ page.content|purify }}</p>
 
                     {% else %} {# contenu par défault #}
-                        <div class="d-flex align-items-center justify-content-center h-100">
+                        
+                        {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
+                            <a  href="{{ path('card_edit', {id: 19}) }}">
+                                <i class="fas fa-edit mb-3">Editer le menu</i>
+                            </a>
+                            {# {{ path('card_edit', {id: page.id}) }} #}
+                        {% endif %}
+                        
+                        <h2 class="d-block raleway-regular mb-4">
+                            <i class="fas fa-utensils"></i>&nbsp;{{menuOfTheDay.title}}&nbsp;<i class="fas fa-utensils"></i>
+                        </h2>
+                        <p class="d-block josefin-light ">{{ menuOfTheDay.content|purify }}</p>
 
-                            <p class="raleway-regular">Bon appetit !</p>
-
-                        </div>
+                        
                     {% endif %}
                     
                 </div>

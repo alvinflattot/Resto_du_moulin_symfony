@@ -18,8 +18,13 @@ class CardController extends AbstractController
     public function card()
     {
 
+        $pagerepo =  $this->getDoctrine()->getRepository(Page::class);
+        
+        $menuOfTheDay = $pagerepo->findOneByType('menu-du-jour');
+
         return $this->render('card/card.html.twig', [
-            'controller_name' => 'MainController',   
+            'controller_name' => 'MainController',  
+            'menuOfTheDay' => $menuOfTheDay
         ]);
     }
 
@@ -68,6 +73,29 @@ class CardController extends AbstractController
             'form' => $form->createView(),
             'page' => $page
         ]);
+    }
+
+    /**
+     * @Route("/test-json/", name="test_json")
+     */
+    public function testJson()
+    {
+
+        // $fruits = ['Fraise', 'Orange', 'Banane', 'Pomme', 'Poire'];
+
+        $newpage = new Page();
+
+        $newpage->setTitle('titre');
+        $newpage->setType('type');
+        $newpage->setContent('le contenu');
+
+        dump($newpage);
+
+        return $this->json([
+            // 'fruits' => $fruits,
+            'page' => $newpage
+        ]);
+
     }
 
 }
