@@ -26,6 +26,7 @@ class MainController extends AbstractController
      */
     public function infos()
     {
+        
         return $this->render('main/infos-legales.html.twig', [
             'controller_name' => 'MainController',
         ]);

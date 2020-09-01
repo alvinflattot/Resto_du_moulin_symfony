@@ -7,7 +7,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactType;
 
-
 class ContactController extends AbstractController
 {
     /**
@@ -53,10 +52,7 @@ class ContactController extends AbstractController
             //redirection
             return $this->redirectToRoute('home');
 
-            
         }
-
-
 
         return $this->render('contact/contact.html.twig', [
             'contactForm' => $form->createView(),

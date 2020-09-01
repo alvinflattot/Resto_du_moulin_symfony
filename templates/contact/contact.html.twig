@@ -65,9 +65,10 @@
             <div class="offset-3 col-6">
                 {# Champ message #}
                 {{ form_row(contactForm.message, {attr: {rows: '8'}}) }}
+                <small>Les champs marqué d'un * sont obligatoires</small>
             </div>
 
-            <div class="col-4 offset-4 contact-btn-div">
+            <div class="col-4 offset-4 contact-btn-div mt-3">
                 {# Bouton de validation #}
                 {{ form_row(contactForm.send) }}
             </div>
