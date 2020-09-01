@@ -42,7 +42,7 @@ class CardController extends AbstractController
     /**
     * Page admin permettant de modifier le contenu des pages de menu du restaurant
     *
-    * @Route("/modification-menu/{id}", name="card_edit")
+    * @Route("/modification-menu/{type}", name="card_edit")
     * @Security("is_granted('ROLE_ADMIN')")
     */
     public function cardEdit(Page $page, request $request)

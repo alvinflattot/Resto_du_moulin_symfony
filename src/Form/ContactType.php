@@ -9,10 +9,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\IsTrue;
 
 
 
@@ -141,6 +143,16 @@ class ContactType extends AbstractType
                     ]),
                 ]
             ])
+
+            // ->add('agreeTerms', CheckboxType::class, [
+            //     'mapped' => false,
+            //     'label' => 'En cochant cette case, vous acceptez nos Règles et Conditions',
+            //     'constraints' => [
+            //         new IsTrue([
+            //             'message' => 'Vous devez accepter nos Règles et Conditions.',
+            //         ]),
+            //     ],
+            // ])
 
             //bouton envoyer
             ->add('send', SubmitType::class,[

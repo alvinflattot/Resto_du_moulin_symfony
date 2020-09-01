@@ -113,9 +113,11 @@
                             <small > <i class="fas fa-wrench"></i> Déconnexion </small>
                         </a>
                     {% else %} {# Boutons si l'utilisateur n'est pas connecté #}
-                        <a  class="pt-4 d-block"href="{{ path('app_login') }}">
-                            <small > <i class="fas fa-wrench"></i> Administration </small>
-                        </a>
+                        <div class="pt-4 ">
+                            <a   href="{{ path('app_login') }}">
+                                <small  > <i class="fas fa-wrench"></i> Administration </small>
+                            </a>
+                        </div>
                     {% endif %}
 
                 </div>

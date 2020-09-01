@@ -57,7 +57,7 @@
                     {% if page is defined %}
 
                         {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
-                            <a  href="{{ path('card_edit', {id: page.id}) }}">
+                            <a  href="{{ path('card_edit', {type: "menu-du-jour"}) }}">
                                 <i class="fas fa-edit mb-3">Editer le menu</i>
                             </a>
                             {# {{ path('card_edit', {id: page.id}) }} #}
@@ -71,7 +71,7 @@
                     {% else %} {# contenu par défault #}
                         
                         {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
-                            <a  href="{{ path('card_edit', {id: 19}) }}">
+                            <a  href="{{ path('card_edit', {type: "menu-du-jour"}) }}">
                                 <i class="fas fa-edit mb-3">Editer le menu</i>
                             </a>
                             {# {{ path('card_edit', {id: page.id}) }} #}
