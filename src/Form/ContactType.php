@@ -106,7 +106,7 @@ class ContactType extends AbstractType
             //téléphone
             ->add('phone', TextType::class, [
                 'required' => false,
-                'label' => 'Téléphone',
+                'label' => 'Téléphone (au format 0654788956',
                 'constraints' => [
                     new Regex([
                         'pattern' => "/^([0-9]{2}[ -.]?){4}[0-9]{2}$/",
