@@ -55,7 +55,7 @@ class CardController extends AbstractController
         $form->handleRequest($request);
 
          // Si le formulaire est envoyé et n'a pas d'erreur
-         if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){
 
             // Sauvegarde des changements faits dans la page via le manager général des entités
             $em = $this->getDoctrine()->getManager();

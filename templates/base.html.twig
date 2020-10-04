@@ -69,9 +69,6 @@
                         <li class="nav-item{{ currentRoute == 'contact' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                         </li>
-                        <li class="nav-item mr-3 {{ currentRoute == 'infos_legales' ? ' active' : '' }}">
-                            <a class="nav-link" href="{{ path('infos_legales') }}">Infos légales</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link " href="tel:0385571885" id="phone-number"> <i class="fas fa-phone-alt"></i>  0385571885</a>
                         </li>
@@ -90,7 +87,7 @@
 
             </header>
 
-             {# Affichage du contenu principal des pages #}
+            {# Affichage du contenu principal des pages #}
             {% block body %}{% endblock %}
 
             {#Pied de page#}
@@ -113,10 +110,11 @@
                             <small > <i class="fas fa-wrench"></i> Déconnexion </small>
                         </a>
                     {% else %} {# Boutons si l'utilisateur n'est pas connecté #}
-                        <div class="pt-4 ">
-                            <a   href="{{ path('app_login') }}">
-                                <small  > <i class="fas fa-wrench"></i> Administration </small>
-                            </a>
+                        <div class="pt-4 d-flex d-inline justify-content-center">
+                            
+                            <a class="nav-link p-0" href="{{ path('infos_legales') }}">Infos légales</a>&nbsp;
+                            <a href="{{ path('app_login') }}"><small  ><i class="fas fa-wrench"></i></small></a>
+                            
                         </div>
                     {% endif %}
 
