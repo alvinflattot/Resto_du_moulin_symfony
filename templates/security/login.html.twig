@@ -12,7 +12,7 @@
 </section>
 
 <section class="row py-5">
-    <form method="post" class="col-6 offset-3">
+    <form method="post" class="col-10 offset-1 col-md-6 offset-md-3">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -30,7 +30,7 @@
         <input type="password" name="password" id="inputPassword" class="form-control" required>
     
         <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
+            value="{{ csrf_token('authenticate') }}"
         >
     
         {#
@@ -44,7 +44,7 @@
             </div>
         #}
     
-        <button class="btn btn-lg btn-primary btn-red mt-4" type="submit">
+        <button class="btn btn-lg btn-primary btn-red mt-4 col-12  col-md-6 offset-md-3" type="submit">
             Connexion
         </button>
     </form>

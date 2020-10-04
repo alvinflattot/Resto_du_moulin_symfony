@@ -238,7 +238,6 @@ html{
     background-color:#aa3938 ;
     
     display: block;
-  
 }
 
 .card-view{
@@ -270,4 +269,9 @@ html{
 .separateur-footer{
     width: 140px;
 }
+
+.admin-link:hover{
+    color: #e48d8d;
+}
+
 

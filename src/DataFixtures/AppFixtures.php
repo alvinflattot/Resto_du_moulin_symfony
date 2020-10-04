@@ -28,7 +28,23 @@ class AppFixtures extends Fixture
         $plat
             ->setType('plat')
             ->setTitle('Carte des plats')
-            ->setContent('liste des plats a remplir')
+            ->setContent('
+                Pièce de boeuf grillé à la plancha,
+                sauce époisses.
+                16,50€
+                
+                Dos de thon snacké,
+                concassé de tomate aux olives et basilic.
+                15,50€
+                
+                Gigotin de volaille farci au lard fumé,
+                jus au thym.
+                12,50€
+                
+                Gouginettes de carpe "des Dombes" en friture,
+                sauce tartare.
+                14,50€
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine
@@ -43,7 +59,26 @@ class AppFixtures extends Fixture
         $dessert
             ->setType('dessert')
             ->setTitle('Carte des desserts')
-            ->setContent('liste des desserts a remplir')
+            ->setContent('
+                Assiette de fromages :
+                Époisses, comté, chèvre frais
+                6,50€
+                
+                Moelleux au chocolat coeur coulant
+                et crème anglaise
+                6,50€
+                
+                Parfait glacé au citron vert,
+                coulis de fruits rouges
+                6,50€
+                
+                Fromage blanc à la crème de la chèvrerie
+                "Les Terres Chaudes".
+                4,50€
+                
+                Café Gourmand
+                6,50€
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine
@@ -58,7 +93,19 @@ class AppFixtures extends Fixture
         $entree
             ->setType('entree')
             ->setTitle('Carte des entrees')
-            ->setContent('liste des entrees a remplir')
+            ->setContent('
+                Bruschetta de poivrons marinés,
+                saumon fumé et fromage frais.
+                10,50€
+                
+                Salade campagnarde, oeuf poché,
+                fromage de chèvre et jambon cru.
+                7,50€
+                
+                Cabillaud émietté au safran
+                et petits légumes.
+                9,50€
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine
@@ -73,7 +120,14 @@ class AppFixtures extends Fixture
         $emporter
             ->setType('emporter')
             ->setTitle('Carte des emporters')
-            ->setContent(' a remplir')
+            ->setContent('
+                Gourmandises du week-end
+                (sur commande uniquement)
+                
+                Plats du chef à emporter (entrées, plats, menus)
+                
+                Tous les détails sur notre page Facebook ou en nous téléphonant (03 85 57 18 85)
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine
@@ -88,7 +142,21 @@ class AppFixtures extends Fixture
         $petitChef
             ->setType('petit-chef')
             ->setTitle('Menu des petits chefs')
-            ->setContent(' a remplir')
+            ->setContent('
+                11,50 €
+
+                Menu enfant jusqu\'à 10 ans
+                
+                Entrée
+                Plat
+                Fromage ou Dessert 
+                
+                > Demander la suggestion du chef < 
+                
+                Nos menus sont taxes et service compris. Boissons non comprises dans le menu.
+                
+                Tout changement dans le menu sera facturé 3,50 €.
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine
@@ -103,7 +171,17 @@ class AppFixtures extends Fixture
         $menuDuJour
             ->setType('menu-du-jour')
             ->setTitle('Menu du jour')
-            ->setContent(' a remplir')
+            ->setContent('
+                Entrée, Plat, Fromages ou Dessert
+
+                15,00 €
+                
+                Entrée, Plat, Fromages et Dessert
+                
+                16,00 €
+                
+                Café offert 
+            ')
         ;
 
         // Enregistrement de la nouvelle page auprès de Doctrine

@@ -112,8 +112,8 @@
                     {% else %} {# Boutons si l'utilisateur n'est pas connecté #}
                         <div class="pt-4 d-flex d-inline justify-content-center">
                             
-                            <a class="nav-link p-0" href="{{ path('infos_legales') }}">Infos légales</a>&nbsp;
-                            <a href="{{ path('app_login') }}"><small  ><i class="fas fa-wrench"></i></small></a>
+                            <a href="{{ path('infos_legales') }}">Infos légales</a>
+                            <a href="{{ path('app_login') }}" class="admin-link ml-1"><small  ><i class="fas fa-wrench"></i></small></a> {#lien admin#}
                             
                         </div>
                     {% endif %}
