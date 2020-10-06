@@ -82,21 +82,31 @@ class CardController extends AbstractController
     public function testJson()
     {
 
-        // $fruits = ['Fraise', 'Orange', 'Banane', 'Pomme', 'Poire'];
-
-        $newpage = new Page();
-
-        $newpage->setTitle('titre');
-        $newpage->setType('type');
-        $newpage->setContent('le contenu');
-
-        dump($newpage);
+        $pageRepo = $this->getDoctrine()->getRepository(Page::class);
+        $pages = $pageRepo->findAll();
+        
+        dump($pages);
 
         return $this->json([
             // 'fruits' => $fruits,
-            'page' => $newpage
+            'pages' => $pages
         ]);
 
+    }
+
+    /**
+     * @Route("/testcard/", name="test_card")
+     */
+    public function testCard()
+    {
+        $pageRepo = $this->getDoctrine()->getRepository(Page::class);
+        $pages = $pageRepo->findAll();
+        
+        dump($pages);
+
+        return $this->render('card/cardTest.html.twig', [
+            'pages' => $pages
+        ]);
     }
 
 }

@@ -1,6 +1,9 @@
-$('#test').click(function(){
+$('.cards-nav li').click(function(){
 
-    let mealType = $(this).data('type'); //récupère le type de plats dans la data du bouton
+
+    let $type = ( $(this).data('type') )
+
+    // let mealType = $(this).data('type'); //récupère le type de plats dans la data du bouton
 
 
     $.ajax({
@@ -8,19 +11,22 @@ $('#test').click(function(){
         url: 'http://localhost:8000/test-json/',                // Page cible de la requête
         dataType: 'json',               // type de données récupérées (html, json, text, xml, script)
         data:{
-            type:mealType
+            type: type
         },
         success: function(data){
 
             // Si on rentre ici, c'est que la requête s'est bien déroulée
             console.log(data);
 
-            data.forEach(function(page){
-                
-                let newPage = page.title;
-                console.log(newPage);
+            $('.card-title').text(data.pages[0].title)
+            $('.card-content').text(data.pages[0].content)
 
-            })
+            // data.forEach(function(page){
+                
+            //     let newPage = page.title;
+            //     console.log(newPage);
+
+            // })
 
         },
         error: function(){

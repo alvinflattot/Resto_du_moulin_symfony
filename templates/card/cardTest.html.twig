@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notre carte{% endblock %}
+
+{% block body %}
+
+    {# Entête #}
+    <section class="row head-title head-menu">
+        <div class="col-12  text-center head-title-overlay py-4">
+            <h1>Menu</h1>
+        </div>
+    </section>
+
+    {# Section menu #}
+    <section class="row  py-4 py-md-5 text-center  ">
+
+        <div  class="col-12">
+        
+            {# barre de navigation de la carte du restaurant #}
+
+            <nav class="cards-nav col-10 offset-1  ">
+                <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
+                    <li class="m-1 m-md-0 ">
+                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' or currentRoute == 'card' ? ' card-btn-active' : '' }}" >Menu du jour</p>
+                    </li>
+                    <li class="m-1 m-md-0"  data-type="entree">
+                        <p class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'entree' ? ' card-btn-active' : '' }} ">Entrées</p>
+                    </li>
+                    <li class="m-1 m-md-0">
+                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'plat' ? ' card-btn-active' : '' }} ">Plats</p>
+                    </li>
+                    <li class="m-1 m-md-0">
+                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'dessert' ? ' card-btn-active' : '' }} ">Desserts</p>
+                    </li>
+                    <li class="m-1 m-md-0">
+                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'petit-chef' ? ' card-btn-active' : '' }} ">Petit chef</p>
+                    </li>
+                    <li class="m-1 m-md-0">
+                        <p id='test' class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'emporter' ? ' card-btn-active' : '' }} ">À emporter</p>
+                    </li>
+                    
+                </ul>
+            </nav>
+
+            {# Affichage des messages flashs de type "success" si il y en a #}
+            {% include 'partials/flashes/success.html.twig' %}
+            {# Affichage des messages flashs de type "error" si il y en a #}
+            {% include 'partials/flashes/error.html.twig' %}
+
+            {# affichage de la carte  #}
+            <div class="row ">
+
+                <div class="col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
+
+                    
+                    {# si un bouton du menu est selectionné #}
+                    {% if page is defined %}
+
+                        {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
+                            <a  href="{{ path('card_edit', {type: page.type}) }}">
+                                <i class="fas fa-edit mb-3">Editer le menu</i>
+                            </a>
+                            {# {{ path('card_edit', {id: page.id}) }} #}
+                        {% endif %}
+                        
+                        <h2 class="d-block raleway-regular mb-4 card-title">
+                            <i class="fas fa-utensils"></i>ezfzfz<i class="fas fa-utensils"></i>
+                        </h2>
+                        <div class="d-block josefin-light ">{{ page.content|purify }}</div>
+
+                    {% else %} {# contenu par défault #}
+                        
+                        {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
+                            <a  href="{{ path('card_edit', {type: "menu-du-jour"}) }}">
+                                <i class="fas fa-edit mb-3">Editer le menu</i>
+                            </a>
+                            {# {{ path('card_edit', {id: page.id}) }} #}
+                        {% endif %}
+                        
+                        <h2 class="d-block raleway-regular mb-4">
+                            <i class="fas fa-utensils"></i><span class="card-title mx-1"></span><i class="fas fa-utensils"></i>
+                        </h2>
+                        <div class="d-block josefin-light card-content"></div>
+
+                        
+                    {% endif %}
+                    
+                </div>
+            
+            </div>
+
+        </div>
+                
+    </section>
+
+    
+
+{% endblock %}

@@ -125,6 +125,7 @@ html{
 
 /*Présentation du restaurant*/
 
+
 .separateur{
     max-width:300px ;
     margin: auto;
@@ -233,6 +234,18 @@ html{
 }
 
 .cards-nav>ul>li>a{
+    color:white; 
+    text-decoration: none; 
+    background-color:#aa3938 ;
+    
+    display: block;
+}
+
+.cards-nav>ul>li>p:hover{
+    background-color:#8a2f2d ;
+}
+
+.cards-nav>ul>li>p{
     color:white; 
     text-decoration: none; 
     background-color:#aa3938 ;
