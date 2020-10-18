@@ -1,32 +1,31 @@
-$('.cards-nav li').click(function(){
+const 
+    pagetitleSelector = document.querySelector('.page-title'),
+    pageContentSelector = document.querySelector('.page-content')
 
+;
 
-    let $type = ( $(this).data('type') )
+$('.cards-nav li button').click(function(){
 
-    // let mealType = $(this).data('type'); //récupère le type de plats dans la data du bouton
-
+    let mealType = $(this).data('meal-type'); //récupère le type de plats dans la data du bouton
+    console.log(mealType);
 
     $.ajax({
-        type: 'GET',                    // Verbe de la requête (GET, POST, etc..)
+        type: 'POST',                    // Verbe de la requête (GET, POST, etc..)
         url: 'http://localhost:8000/test-json/',                // Page cible de la requête
         dataType: 'json',               // type de données récupérées (html, json, text, xml, script)
         data:{
-            type: type
+            mealType: mealType
         },
         success: function(data){
 
-            // Si on rentre ici, c'est que la requête s'est bien déroulée
-            console.log(data);
+            let 
+                pageTitle = data.page.title
+                pageContent = data.page.content
+            ;
 
-            $('.card-title').text(data.pages[0].title)
-            $('.card-content').text(data.pages[0].content)
+            pagetitleSelector.innerHTML = '<i class="fas fa-utensils"></i><span class="px-2">' + pageTitle + '</span><i class="fas fa-utensils "></i>';
+            pageContentSelector.innerHTML = pageContent;
 
-            // data.forEach(function(page){
-                
-            //     let newPage = page.title;
-            //     console.log(newPage);
-
-            // })
 
         },
         error: function(){
@@ -35,4 +34,5 @@ $('.cards-nav li').click(function(){
             alert('Erreur !');
         }
     });
+
 })

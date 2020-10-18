@@ -8,8 +8,7 @@ use App\Entity\Page;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\PageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
-
+use Symfony\Component\BrowserKit\Response;
 
 class CardController extends AbstractController
 {
@@ -18,14 +17,7 @@ class CardController extends AbstractController
      */
     public function card()
     {
-
-        $pagerepo =  $this->getDoctrine()->getRepository(Page::class);
-        
-        $menuOfTheDay = $pagerepo->findOneByType('menu-du-jour');
-
         return $this->render('card/card.html.twig', [
-            'controller_name' => 'MainController',  
-            'menuOfTheDay' => $menuOfTheDay
         ]);
     }
 
@@ -79,17 +71,16 @@ class CardController extends AbstractController
     /**
      * @Route("/test-json/", name="test_json")
      */
-    public function testJson()
+    public function testJson(Request $request)
     {
+        $mealType = $request->request->get('mealType');
 
         $pageRepo = $this->getDoctrine()->getRepository(Page::class);
-        $pages = $pageRepo->findAll();
-        
-        dump($pages);
+        $page = $pageRepo->findOneByType($mealType);
 
         return $this->json([
-            // 'fruits' => $fruits,
-            'pages' => $pages
+            'page' => $page,
+            // 'dataGet' => $mealType,
         ]);
 
     }
@@ -102,8 +93,6 @@ class CardController extends AbstractController
         $pageRepo = $this->getDoctrine()->getRepository(Page::class);
         $pages = $pageRepo->findAll();
         
-        dump($pages);
-
         return $this->render('card/cardTest.html.twig', [
             'pages' => $pages
         ]);

@@ -21,22 +21,22 @@
             <nav class="cards-nav col-10 offset-1  ">
                 <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
                     <li class="m-1 m-md-0 ">
-                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type == 'menu-du-jour' or currentRoute == 'card' ? ' card-btn-active' : '' }}" >Menu du jour</p>
-                    </li>
-                    <li class="m-1 m-md-0"  data-type="entree">
-                        <p class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'entree' ? ' card-btn-active' : '' }} ">Entrées</p>
+                        <button data-meal-type="menu-du-jour" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md " >Menu du jour</button>
                     </li>
                     <li class="m-1 m-md-0">
-                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'plat' ? ' card-btn-active' : '' }} ">Plats</p>
+                        <button data-meal-type="entree" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Entrées</button>
                     </li>
                     <li class="m-1 m-md-0">
-                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'dessert' ? ' card-btn-active' : '' }} ">Desserts</p>
+                        <button data-meal-type="plat" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Plats</button>
                     </li>
                     <li class="m-1 m-md-0">
-                        <p  class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'petit-chef' ? ' card-btn-active' : '' }} ">Petit chef</p>
+                        <button data-meal-type="dessert" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Desserts</button>
                     </li>
                     <li class="m-1 m-md-0">
-                        <p id='test' class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{ page is defined and page.type  == 'emporter' ? ' card-btn-active' : '' }} ">À emporter</p>
+                        <button data-meal-type="petit-chef" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Petit chef</button>
+                    </li>
+                    <li class="m-1 m-md-0">
+                        <button data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md">À emporter</button>
                     </li>
                     
                 </ul>
@@ -63,8 +63,10 @@
                             {# {{ path('card_edit', {id: page.id}) }} #}
                         {% endif %}
                         
-                        <h2 class="d-block raleway-regular mb-4 card-title">
-                            <i class="fas fa-utensils"></i>ezfzfz<i class="fas fa-utensils"></i>
+                        <h2 class="d-block raleway-regular mb-4">
+                            <i class="fas fa-utensils"></i>
+                            
+                            <i class="fas fa-utensils"></i>
                         </h2>
                         <div class="d-block josefin-light ">{{ page.content|purify }}</div>
 
@@ -77,10 +79,10 @@
                             {# {{ path('card_edit', {id: page.id}) }} #}
                         {% endif %}
                         
-                        <h2 class="d-block raleway-regular mb-4">
-                            <i class="fas fa-utensils"></i><span class="card-title mx-1"></span><i class="fas fa-utensils"></i>
+                        <h2 class="d-block raleway-regular mb-4 page-title">
+                            <i class="fas fa-utensils"></i>blabla<i class="fas fa-utensils"></i>
                         </h2>
-                        <div class="d-block josefin-light card-content"></div>
+                        <div class="d-block josefin-light page-content"> content </div>
 
                         
                     {% endif %}
