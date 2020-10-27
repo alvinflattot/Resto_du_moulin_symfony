@@ -1,0 +1,23 @@
+
+                    
+                    {# L'attribut action du formulaire doit être généré car ce dernier contient l'id de la page à modifier #}
+                    {{ form_start(form, {attr: {class: 'row'}}, {attr: {'action' : path('card_edit', { id: form.vars.value.id })}}) }}
+
+                        <div class="offset-2 col-8">
+                            {# Champ titre #}
+                            {{ form_row(form.title) }}
+                        </div>
+
+                        <div class="offset-1 col-10">
+                            {# Champ contenu #}
+                            {{ form_row(form.content, {attr: {rows: '12'}}) }}
+                        </div>
+
+                        <div class="offset-2 col-3 contact-btn-div">
+                            {# Champ titre #}
+                            {{ form_row(form.send) }}
+                        </div>
+
+                    {# Fermeture du formulaire #}
+                    {{ form_end(form) }}
+            

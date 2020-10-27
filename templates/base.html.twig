@@ -43,14 +43,11 @@
                         <li class="nav-item {{ currentRoute == 'home' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ path('home') }}">Accueil</a>
                         </li>
-                        <!-- <li class="nav-item {{ currentRoute == 'card' or currentRoute == 'card_type' ? ' active' : '' }}">
-                            <a class="nav-link" href="{{ path('card') }}">Menu</a>
-                            
-                        </li> -->
+                        
                         <li class="nav-item dropdown {{ currentRoute == 'card' or currentRoute == 'card_type' ? ' active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ path('card') }}"><b>Notre carte</b></a>
+                                <a class="dropdown-item" href="{{ path('test_card') }}"><b>Notre carte</b></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ path('card_type',{type: 'menu-du-jour'}) }}">Menu du jour</a>
                                 <a class="dropdown-item" href="{{ path('card_type',{type: 'entree'}) }}">Carte des entrées</a>

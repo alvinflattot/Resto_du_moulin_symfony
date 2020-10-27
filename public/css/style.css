@@ -47,6 +47,10 @@ html{
     background-color:#8a2f2d ;
 }
 
+.display-none{
+    display: none;
+}
+
 /*Navbar*/
 
 .red-line{

@@ -38,9 +38,9 @@
                     <li class="m-1 m-md-0">
                         <button data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md">À emporter</button>
                     </li>
-                    
                 </ul>
             </nav>
+            <button id="test">test</button>
 
             {# Affichage des messages flashs de type "success" si il y en a #}
             {% include 'partials/flashes/success.html.twig' %}
@@ -49,50 +49,45 @@
 
             {# affichage de la carte  #}
             <div class="row ">
-
-                <div class="col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
-
-                    
-                    {# si un bouton du menu est selectionné #}
-                    {% if page is defined %}
-
+                <div class=" col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
+                    <div class="view">
                         {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
-                            <a  href="{{ path('card_edit', {type: page.type}) }}">
+                            <p>
                                 <i class="fas fa-edit mb-3">Editer le menu</i>
-                            </a>
-                            {# {{ path('card_edit', {id: page.id}) }} #}
-                        {% endif %}
-                        
-                        <h2 class="d-block raleway-regular mb-4">
-                            <i class="fas fa-utensils"></i>
-                            
-                            <i class="fas fa-utensils"></i>
-                        </h2>
-                        <div class="d-block josefin-light ">{{ page.content|purify }}</div>
-
-                    {% else %} {# contenu par défault #}
-                        
-                        {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
-                            <a  href="{{ path('card_edit', {type: "menu-du-jour"}) }}">
-                                <i class="fas fa-edit mb-3">Editer le menu</i>
-                            </a>
-                            {# {{ path('card_edit', {id: page.id}) }} #}
+                            </p>
                         {% endif %}
                         
                         <h2 class="d-block raleway-regular mb-4 page-title">
                             <i class="fas fa-utensils"></i>blabla<i class="fas fa-utensils"></i>
                         </h2>
-                        <div class="d-block josefin-light page-content"> content </div>
-
                         
-                    {% endif %}
-                    
-                </div>
-            
-            </div>
+                        <div class="d-block josefin-light page-content"> content </div>
+                    </div>
+                    <div class="form-modif display-none">
+                        {# L'attribut action du formulaire doit être généré car ce dernier contient l'id de la page à modifier #}
+                        {{ form_start(form, {attr: {class: 'row'}}, {attr: {'action' : path('card_edit', { id: form.vars.value.id })}}) }}
 
+                        <div class="offset-2 col-8">
+                            {# Champ titre #}
+                            {{ form_row(form.title) }}
+                        </div>
+
+                        <div class="offset-1 col-10">
+                            {# Champ contenu #}
+                            {{ form_row(form.content, {attr: {rows: '12'}}) }}
+                        </div>
+
+                        <div class="offset-2 col-3 contact-btn-div">
+                            {# Champ titre #}
+                            {{ form_row(form.send) }}
+                        </div>
+
+                    {# Fermeture du formulaire #}
+                    {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
         </div>
-                
     </section>
 
     

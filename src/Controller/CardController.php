@@ -69,6 +69,41 @@ class CardController extends AbstractController
     }
 
     /**
+     * @Route("/modification-menu2/", name="card_edit2")
+     * @Security("is_granted('ROLE_ADMIN')")
+     */
+    public function cardEdit2(request $request)
+    {
+
+        $newPage = new Page();
+        // Création du formulaire de modification d'une page menu 
+        $form = $this->createForm(PageType::class, $newPage);
+
+        // Liaison des données de requête (POST) avec le formulaire
+        $form->handleRequest($request);
+
+        //  Si le formulaire est envoyé et n'a pas d'erreur
+        if($form->isSubmitted() && $form->isValid()){
+
+            // Sauvegarde des changements faits dans la page via le manager général des entités
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            // Message flash de type "success"
+            $this->addFlash('success', 'Menu modifié avec succès !');
+
+            // Redirection vers la page de la page modifié
+            return $this->redirectToRoute('testcard');
+
+        }
+
+        // Appel de la vue en lui envoyant le formulaire à afficher
+        return $this->render('card/editCard2.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/test-json/", name="test_json")
      */
     public function testJson(Request $request)
@@ -88,13 +123,36 @@ class CardController extends AbstractController
     /**
      * @Route("/testcard/", name="test_card")
      */
-    public function testCard()
+    public function testCard(request $request)
     {
         $pageRepo = $this->getDoctrine()->getRepository(Page::class);
         $pages = $pageRepo->findAll();
+
+        $newPage = new Page();
+        // Création du formulaire de modification d'une page menu 
+        $form = $this->createForm(PageType::class, $newPage);
+
+        // Liaison des données de requête (POST) avec le formulaire
+        $form->handleRequest($request);
+
+        //  Si le formulaire est envoyé et n'a pas d'erreur
+        if($form->isSubmitted() && $form->isValid()){
+
+            // Sauvegarde des changements faits dans la page via le manager général des entités
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+
+            // Message flash de type "success"
+            $this->addFlash('success', 'Menu modifié avec succès !');
+
+            // Redirection vers la page de la page modifié
+            return $this->redirectToRoute('cardTest');
+
+        }
         
         return $this->render('card/cardTest.html.twig', [
-            'pages' => $pages
+            'pages' => $pages,
+            'form' => $form->createView(),
         ]);
     }
 
