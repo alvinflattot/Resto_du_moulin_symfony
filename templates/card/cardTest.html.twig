@@ -58,32 +58,10 @@
                         {% endif %}
                         
                         <h2 class="d-block raleway-regular mb-4 page-title">
-                            <i class="fas fa-utensils"></i>blabla<i class="fas fa-utensils"></i>
+                            <i class="fas fa-utensils"></i>titre<i class="fas fa-utensils"></i>
                         </h2>
                         
                         <div class="d-block josefin-light page-content"> content </div>
-                    </div>
-                    <div class="form-modif display-none">
-                        {# L'attribut action du formulaire doit être généré car ce dernier contient l'id de la page à modifier #}
-                        {{ form_start(form, {attr: {class: 'row'}}, {attr: {'action' : path('card_edit', { id: form.vars.value.id })}}) }}
-
-                        <div class="offset-2 col-8">
-                            {# Champ titre #}
-                            {{ form_row(form.title) }}
-                        </div>
-
-                        <div class="offset-1 col-10">
-                            {# Champ contenu #}
-                            {{ form_row(form.content, {attr: {rows: '12'}}) }}
-                        </div>
-
-                        <div class="offset-2 col-3 contact-btn-div">
-                            {# Champ titre #}
-                            {{ form_row(form.send) }}
-                        </div>
-
-                    {# Fermeture du formulaire #}
-                    {{ form_end(form) }}
                     </div>
                 </div>
             </div>
@@ -92,4 +70,11 @@
 
     
 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        
+
+    </script>
 {% endblock %}

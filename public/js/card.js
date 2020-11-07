@@ -1,5 +1,5 @@
 const 
-    pagetitleSelector = document.querySelector('.page-title'),
+    pageTitleSelector = document.querySelector('.page-title'),
     pageContentSelector = document.querySelector('.page-content'),
     pageView = document.querySelector('.formulaire')
 ;
@@ -10,7 +10,7 @@ $('.cards-nav li button').click(function(){
 
     $.ajax({
         type: 'POST',                    // Verbe de la requête (GET, POST, etc..)
-        url: 'test-json/',                // Page cible de la requête
+        url: 'http://localhost:8000/test-json/',                // Page cible de la requête
         dataType: 'json',               // type de données récupérées (html, json, text, xml, script)
         data:{
             mealType: mealType
@@ -22,7 +22,7 @@ $('.cards-nav li button').click(function(){
                 pageContent = data.page.content
             ;
 
-            pagetitleSelector.innerHTML = '<i class="fas fa-utensils"></i><span class="px-2">' + pageTitle + '</span><i class="fas fa-utensils "></i>';
+            pageTitleSelector.innerHTML = '<i class="fas fa-utensils"></i><span class="px-2">' + pageTitle + '</span><i class="fas fa-utensils "></i>';
             pageContentSelector.innerHTML = pageContent;
 
 
