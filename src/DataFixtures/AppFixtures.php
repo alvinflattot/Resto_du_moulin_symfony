@@ -119,7 +119,7 @@ class AppFixtures extends Fixture
         //hydratation de la nouvelle page
         $emporter
             ->setType('emporter')
-            ->setTitle('Carte des emporters')
+            ->setTitle('A emporter')
             ->setContent('
                 Gourmandises du week-end
                 (sur commande uniquement)

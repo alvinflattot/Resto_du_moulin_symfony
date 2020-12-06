@@ -47,7 +47,7 @@
                         <li class="nav-item dropdown {{ currentRoute == 'card' or currentRoute == 'card_type' ? ' active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ path('test_card') }}"><b>Notre carte</b></a>
+                                <a class="dropdown-item" href="{{ path('card') }}"><b>Notre carte</b></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ path('card_type',{type: 'menu-du-jour'}) }}">Menu du jour</a>
                                 <a class="dropdown-item" href="{{ path('card_type',{type: 'entree'}) }}">Carte des entrées</a>
@@ -189,6 +189,8 @@
             </footer>
 
         </div>
+        {# Inclusion des fichiers JS individuels des pages #}
+        {% block javascripts %}{% endblock %}
 
         {# Inclusion des fichiers JS généraux du site #}
         <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -196,8 +198,5 @@
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/card.js') }}"></script>
 
-        {# Inclusion des fichiers JS individuels des pages #}
-        {% block javascripts %}{% endblock %}
-        
     </body>
 </html>

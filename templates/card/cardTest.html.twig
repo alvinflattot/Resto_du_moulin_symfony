@@ -12,7 +12,7 @@
     </section>
 
     {# Section menu #}
-    <section class="row  py-4 py-md-5 text-center  ">
+    <section class="row  py-4 py-md-5">
 
         <div  class="col-12">
         
@@ -21,26 +21,25 @@
             <nav class="cards-nav col-10 offset-1  ">
                 <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
                     <li class="m-1 m-md-0 ">
-                        <button data-meal-type="menu-du-jour" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md " >Menu du jour</button>
+                        <a data-meal-type="menu-du-jour" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md card-btn-active " >Menu du jour</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <button data-meal-type="entree" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Entrées</button>
+                        <a data-meal-type="entree" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Entrées</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <button data-meal-type="plat" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Plats</button>
+                        <a data-meal-type="plat" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Plats</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <button data-meal-type="dessert" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Desserts</button>
+                        <a data-meal-type="dessert" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Desserts</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <button data-meal-type="petit-chef" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Petit chef</button>
+                        <a data-meal-type="petit-chef" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Petit chef</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <button data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md">À emporter</button>
+                        <a data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md">À emporter</a>
                     </li>
                 </ul>
             </nav>
-            <button id="test">test</button>
 
             {# Affichage des messages flashs de type "success" si il y en a #}
             {% include 'partials/flashes/success.html.twig' %}
@@ -52,29 +51,31 @@
                 <div class=" col-10 offset-1 col-md-6 offset-md-3 border  rounded card-view  py-3  ">
                     <div class="view">
                         {% if is_granted('ROLE_ADMIN') %} {# si l'admin est connecté on affiche le bouton permettant de modifier la page#}
-                            <p>
-                                <i class="fas fa-edit mb-3">Editer le menu</i>
+                            <p class="text-center m-0">
+                                <a class="edit-link " href="{{ path('card_edit', {type: page.type}) }}">
+                                    <i class="fas fa-edit mb-3">Editer le menu</i>
+                                </a>
                             </p>
+                            
                         {% endif %}
                         
-                        <h2 class="d-block raleway-regular mb-4 page-title">
-                            <i class="fas fa-utensils"></i>titre<i class="fas fa-utensils"></i>
+                        <h2 class="d-block raleway-regular mb-4 page-title  text-center">
+                            <i class="fas fa-utensils"></i><span class="mx-2">{{page.title}}</span><i class="fas fa-utensils"></i>
                         </h2>
                         
-                        <div class="d-block josefin-light page-content"> content </div>
+                        <div class="d-block josefin-light page-content"> {{page.content|purify}} </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    {# {{ dump(pages) }} #}
+
     
 
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        
-
-    </script>
+    
 {% endblock %}

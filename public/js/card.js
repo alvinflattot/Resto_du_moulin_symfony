@@ -1,12 +1,21 @@
 const 
-    pageTitleSelector = document.querySelector('.page-title'),
+    pageTitleSelector = document.querySelector('.page-title span'),
     pageContentSelector = document.querySelector('.page-content'),
-    pageView = document.querySelector('.formulaire')
+    pageView = document.querySelector('.formulaire'),
+    pageEditLink = document.querySelector('.edit-link')
 ;
 
-$('.cards-nav li button').click(function(){
+// console.log(pages)
+
+// pages.forEach(function(page){
+//     console.log(page.title)
+// });
+
+$('.cards-nav li a').click(function(){
 
     let mealType = $(this).data('meal-type'); //récupère le type de plats dans la data du bouton
+    $('.card-btn-active').removeClass('card-btn-active');
+    $(this).addClass('card-btn-active');
 
     $.ajax({
         type: 'POST',                    // Verbe de la requête (GET, POST, etc..)
@@ -17,12 +26,15 @@ $('.cards-nav li button').click(function(){
         },
         success: function(data){
 
+            console.log(data);
             let 
                 pageTitle = data.page.title
                 pageContent = data.page.content
             ;
-
-            pageTitleSelector.innerHTML = '<i class="fas fa-utensils"></i><span class="px-2">' + pageTitle + '</span><i class="fas fa-utensils "></i>';
+            if (pageEditLink) {
+                pageEditLink.setAttribute('href','/modification-menu/'+data.page.type+'');
+            }
+            pageTitleSelector.innerHTML =  pageTitle ;
             pageContentSelector.innerHTML = pageContent;
 
 
@@ -31,6 +43,9 @@ $('.cards-nav li button').click(function(){
 
             // Si on rentre ici, c'est que la requête a eu un problème (serveur injoignable, page introuvable, json invalide, etc...)
             alert('Erreur !');
+        },
+        complete : function(){
+            
         }
     });
 

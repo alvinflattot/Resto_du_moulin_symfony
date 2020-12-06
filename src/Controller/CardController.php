@@ -9,15 +9,24 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\PageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class CardController extends AbstractController
 {
+    
     /**
      * @Route("/notre-carte", name="card")
      */
     public function card()
     {
-        return $this->render('card/card.html.twig', [
+        $pageRepo = $this->getDoctrine()->getRepository(Page::class);
+        $page = $pageRepo->findOneByType('menu-du-jour');
+
+        return $this->render('card/cardTest.html.twig', [
+            'page' => $page
         ]);
     }
 
@@ -27,7 +36,7 @@ class CardController extends AbstractController
     public function meal(Page $page)
     {
 
-        return $this->render('card/card.html.twig', [
+        return $this->render('card/cardTest.html.twig', [
             'page' => $page
         ]);
     }
@@ -123,36 +132,24 @@ class CardController extends AbstractController
     /**
      * @Route("/testcard/", name="test_card")
      */
-    public function testCard(request $request)
+    public function testCard()
     {
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+
         $pageRepo = $this->getDoctrine()->getRepository(Page::class);
-        $pages = $pageRepo->findAll();
+        $page = $pageRepo->findOneByType('menu-du-jour');
+        $pages = $pageRepo->findAllPages();
 
-        $newPage = new Page();
-        // Création du formulaire de modification d'une page menu 
-        $form = $this->createForm(PageType::class, $newPage);
+        $jsonContent = $serializer->serialize($pages, 'json');
 
-        // Liaison des données de requête (POST) avec le formulaire
-        $form->handleRequest($request);
+        dump($jsonContent);
 
-        //  Si le formulaire est envoyé et n'a pas d'erreur
-        if($form->isSubmitted() && $form->isValid()){
-
-            // Sauvegarde des changements faits dans la page via le manager général des entités
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-
-            // Message flash de type "success"
-            $this->addFlash('success', 'Menu modifié avec succès !');
-
-            // Redirection vers la page de la page modifié
-            return $this->redirectToRoute('cardTest');
-
-        }
-        
         return $this->render('card/cardTest.html.twig', [
-            'pages' => $pages,
-            'form' => $form->createView(),
+            'page' => $page,
+            'pages' => $jsonContent
         ]);
     }
 

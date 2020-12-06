@@ -18,9 +18,9 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-           
+        
             ->add('title', TextType::class, [
-                'label' => 'titre',
+                'label' => 'Titre',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci de renseigner un titre de page'
