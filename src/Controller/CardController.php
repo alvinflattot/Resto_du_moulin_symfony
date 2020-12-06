@@ -20,20 +20,20 @@ class CardController extends AbstractController
     /**
      * @Route("/notre-carte", name="card")
      */
-    public function card()
-    {
-        $pageRepo = $this->getDoctrine()->getRepository(Page::class);
-        $page = $pageRepo->findOneByType('menu-du-jour');
+    // public function card()
+    // {
+    //     $pageRepo = $this->getDoctrine()->getRepository(Page::class);
+    //     $page = $pageRepo->findOneByType('menu-du-jour');
 
-        return $this->render('card/cardTest.html.twig', [
-            'page' => $page
-        ]);
-    }
+    //     return $this->render('card/cardTest.html.twig', [
+    //         'page' => $page
+    //     ]);
+    // }
 
     /**
-     * @Route("/notre-carte/{type}/", name="card_type", requirements={"id"="\d+"})
+     * @Route("/notre-carte/{type}/", name="card", requirements={"id"="\d+"})
      */
-    public function meal(Page $page)
+    public function card(Page $page)
     {
 
         return $this->render('card/cardTest.html.twig', [
