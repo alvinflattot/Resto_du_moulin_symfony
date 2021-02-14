@@ -66,7 +66,7 @@ class CardController extends AbstractController
             $this->addFlash('success', 'Menu modifié avec succès !');
 
             // Redirection vers la page de la page modifié
-            return $this->redirectToRoute('card_type', [ 'type' => $page->getType() ]);
+            return $this->redirectToRoute('card', [ 'type' => $page->getType() ]);
 
         }
 
