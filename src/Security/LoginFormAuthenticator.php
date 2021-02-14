@@ -102,7 +102,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         }
 
         // Redirection de l'utilisateur vers la page d'accueil si il est connecté avec succès
-        return new RedirectResponse($this->urlGenerator->generate('card'));
+        return new RedirectResponse($this->urlGenerator->generate('card',['type' => 'menu-du-jour']));
     }
 
     protected function getLoginUrl()

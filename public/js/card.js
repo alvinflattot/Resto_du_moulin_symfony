@@ -19,7 +19,7 @@ $('.cards-nav li a').click(function(){
 
     $.ajax({
         type: 'POST',                    // Verbe de la requête (GET, POST, etc..)
-        url: 'http://localhost:8000/test-json/',                // Page cible de la requête
+        url: '/test-json/',                // Page cible de la requête
         dataType: 'json',               // type de données récupérées (html, json, text, xml, script)
         data:{
             mealType: mealType
