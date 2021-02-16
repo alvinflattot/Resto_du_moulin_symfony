@@ -11,7 +11,7 @@ const
 //     console.log(page.title)
 // });
 
-$('.cards-nav li a').click(function(){
+$('.main-card-div .cards-nav li a').click(function(){
 
     let mealType = $(this).data('meal-type'); //récupère le type de plats dans la data du bouton
     $('.card-btn-active').removeClass('card-btn-active');

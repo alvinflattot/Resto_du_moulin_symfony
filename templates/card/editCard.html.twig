@@ -1,3 +1,5 @@
+{% set currentRouteType = app.request.attributes.get('_route_params')['type'] %}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Notre carte{% endblock %}
@@ -21,22 +23,23 @@
             <nav class="cards-nav col-10 offset-1  ">
                 <ul class="list-unstyled d-flex justify-content-md-center flex-column flex-md-row">
                     <li class="m-1 m-md-0 ">
-                        <a data-meal-type="menu-du-jour" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md card-btn-active " >Menu du jour</a>
+                        <a href="{{ path('card_edit', {type: 'menu-du-jour'}) }}" data-meal-type="menu-du-jour" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{currentRouteType == 'menu-du-jour' ? ' card-btn-active' : '' }}" >Menu du jour</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <a data-meal-type="entree" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Entrées</a>
+                        <a href="{{ path('card_edit', {type: 'entree'}) }}" data-meal-type="entree" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{currentRouteType == 'entree' ? ' card-btn-active' : '' }}">Entrées</a>
+                        
                     </li>
                     <li class="m-1 m-md-0">
-                        <a data-meal-type="plat" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Plats</a>
+                        <a href="{{ path('card_edit', {type: 'plat'}) }}" data-meal-type="plat" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md  {{currentRouteType == 'plat' ? ' card-btn-active' : '' }}">Plats</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <a data-meal-type="dessert" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Desserts</a>
+                        <a href="{{ path('card_edit', {type: 'dessert'}) }}" data-meal-type="dessert" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md  {{currentRouteType == 'dessert' ? ' card-btn-active' : '' }}">Desserts</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <a data-meal-type="petit-chef" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md ">Petit chef</a>
+                        <a href="{{ path('card_edit', {type: 'petit-chef'}) }}" data-meal-type="petit-chef" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md  {{currentRouteType == 'petit-chef' ? ' card-btn-active' : '' }}">Petit chef</a>
                     </li>
                     <li class="m-1 m-md-0">
-                        <a data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md">À emporter</a>
+                        <a href="{{ path('card_edit', {type: 'emporter'}) }}" data-meal-type="emporter" class="py-2 px-md-3 px-lg-4 py-md-4 rounded-md {{currentRouteType == 'emporter' ? ' card-btn-active' : '' }}">À emporter</a>
                     </li>
                 </ul>
             </nav>
