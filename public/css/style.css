@@ -51,6 +51,10 @@ html{
     display: none;
 }
 
+strong,b{
+    font-weight: bold;
+}
+
 /*Navbar*/
 
 .red-line{

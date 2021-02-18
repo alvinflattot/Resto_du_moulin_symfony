@@ -145,8 +145,6 @@ class CardController extends AbstractController
 
         $jsonContent = $serializer->serialize($pages, 'json');
 
-        dump($jsonContent);
-
         return $this->render('card/cardTest.html.twig', [
             'page' => $page,
             'pages' => $jsonContent

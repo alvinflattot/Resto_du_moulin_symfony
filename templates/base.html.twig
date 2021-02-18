@@ -47,7 +47,7 @@
                         <li class="nav-item dropdown {{ currentRoute == 'card' or currentRoute == 'card' ? ' active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ path('card',{type: 'menu-du-jour'}) }}"><b>Notre carte</b></a>
+                                <a class="dropdown-item" href="{{ path('card',{type: 'menu-du-jour'}) }}"><b>Nos propositions</b></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ path('card',{type: 'menu-du-jour'}) }}">Menu du jour</a>
                                 <a class="dropdown-item" href="{{ path('card',{type: 'entree'}) }}">Carte des entrées</a>
@@ -127,7 +127,20 @@
 
                     <h3 class="col-12  text-center">Horaires <i class="far fa-calendar-alt"></i></h3>
                     <table class="table table-borderless table-sm text-white d-flex justify-content-center">
-
+                        <!-- <tbody>
+                            <tr>
+                                <th>Midi</th>
+                                <td>12h-14h</td>
+                            </tr>
+                            <tr>
+                                <th>Soir</th>
+                                <td>19h30-21h30</td>
+                            </tr>
+                            <tr>
+                                <th>jeudi soir</th>
+                                <td>fermé</td>
+                            </tr>
+                        </tbody> -->
                         <tbody>
                             <tr>
                                 <th scope="col"></th>
@@ -136,38 +149,38 @@
                             </tr>
                             <tr>
                                 <th scope="row">lundi</th>
-                                <td>11h-15h</td>
-                                <td>fermé</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                             <tr>
                                 <th scope="row">mardi</th>
-                                <td>11h-15h</td>
-                                <td>fermé</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                             <tr>
                                 <th scope="row">mercredi</th>
-                                <td>fermé</td>
-                                <td>fermé</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                             <tr>
                                 <th scope="row">jeudi</th>
-                                <td>11h-15h</td>
-                                <td>19h-22h</td>
+                                <td>12h-14h</td>
+                                <td>fermé</td>
                             </tr>
                             <tr>
                                 <th scope="row">vendredi</th>
-                                <td>11h-15h</td>
-                                <td>19h-22h</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                             <tr>
                                 <th scope="row">samedi</th>
-                                <td>11h-15h</td>
-                                <td>19h-22h</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                             <tr>
                                 <th scope="row">dimanche</th>
-                                <td>11h-15h</td>
-                                <td>fermé</td>
+                                <td>12h-14h</td>
+                                <td>19h30-21h30</td>
                             </tr>
                         </tbody>
                     </table>
