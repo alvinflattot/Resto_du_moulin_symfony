@@ -43,11 +43,14 @@ class ContactController extends AbstractController
                 //ici envoie du mail
                 $message = (new \Swift_Message('Nouveau Contact'))
                     //on attribue l'expéditeur
+                    // ->setFrom('contact@restaurantdumoulin.fr')
                     ->setFrom($contact['email'])
 
                     // on attribut le destinataire
-                    ->setTo('petillot.emilie@gmail.com')
-
+                    ->setTo('contact@restaurantdumoulin.fr')
+                    // ->setTo('flattotalvin@gmail.com')
+                    // ->setTo('petillot.emilie@gmail.com')
+                    
                     // on crée le message
                     ->setBody(
                         $this->renderView(

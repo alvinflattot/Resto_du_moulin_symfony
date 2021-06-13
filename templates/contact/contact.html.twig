@@ -25,61 +25,61 @@
         {{ form_start(contactForm, {attr: {class: 'row'}}) }}
 
             {# Affichage des erreurs générales du formulaire #}
-            <div class="offset-3 col-6">
+            <div class="offset-1 col-10 offset-md-2 col-md-8">
                 {{ form_errors(contactForm) }}
             </div>
 
-            <div class="offset-3 col-6">
+            <div class="offset-1 col-10 offset-md-2 col-md-8">
                 <small>Les champs marqué d'un * sont obligatoires</small>
             </div>
 
-            <div class="offset-3 col-3">
+            <div class="offset-1 col-10 offset-md-2 col-md-3">
                 {# Champ prénom #}
                 {{ form_row(contactForm.firstname) }}
             </div>
 
-            <div class="col-3">
+            <div class="offset-1 col-10 offset-md-1 col-md-4">
                 {# Champ nom #}
                 {{ form_row(contactForm.lastname) }}
             </div>
 
-            <div class="offset-3 col-6">
+            <div class="offset-1 col-10 offset-md-2 col-md-8">
                 {# Champ adresse #}
                 {{ form_row(contactForm.adress) }}
             </div>
 
-            <div class="offset-3 col-2">
+            <div class="offset-1 col-10 offset-md-2 col-md-2">
                 {# Champ code postal #}
                 {{ form_row(contactForm.zipcode) }}
             </div>
 
-            <div class="col-4">
+            <div class="offset-1 col-10 offset-md-1 col-md-5">
                 {# Champ ville #}
                 {{ form_row(contactForm.city) }}
             </div>
 
-            <div class="offset-3 col-2">
+            <div class="offset-1 col-10 offset-md-2 col-md-2">
                 {# Champ téléphone #}
                 {{ form_row(contactForm.phone) }}
             </div>
             
-            <div class="col-4">
+            <div class=" offset-1 col-10 offset-md-1 col-md-5">
                 {# Champ email #}
                 {{ form_row(contactForm.email) }}
             </div>
 
-            <div class="offset-3 col-6">
+            <div class="offset-1 col-10 offset-md-2 col-md-8">
                 {# Champ message #}
                 {{ form_row(contactForm.message, {attr: {rows: '8'}}) }}
                 
             </div>
 
             {# Affichage du captcha avec la clé publique récupérée directement grâce à la passerelle faite dans twig.yaml #}
-            <div class="form-group offset-3 col-6">
+            <div class="form-group offset-1 col-10 offset-md-2 col-md-8">
                 <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
             </div>
 
-            <div class="offset-3 col-6">
+            <div class="offset-1 col-10 offset-md-2 col-md-8">
                 <p>Aucune donnée personnelle n’est conservée par notre site via ce formulaire</p>
             </div>
 

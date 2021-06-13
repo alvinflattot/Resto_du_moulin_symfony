@@ -92,7 +92,7 @@ class ContactType extends AbstractType
             //ville
             ->add('city', TextType::class, [
                 'required' => false,
-                'label' => 'Vile',
+                'label' => 'Ville',
                 'constraints' => [
                     new Length([
                         'min' => 1,
@@ -106,7 +106,7 @@ class ContactType extends AbstractType
             //téléphone
             ->add('phone', TextType::class, [
                 'required' => false,
-                'label' => 'Téléphone (au format 0654788956',
+                'label' => 'Téléphone',
                 'constraints' => [
                     new Regex([
                         'pattern' => "/^([0-9]{2}[ -.]?){4}[0-9]{2}$/",
